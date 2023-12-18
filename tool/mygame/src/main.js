@@ -1,3 +1,4 @@
+// run with "npm run dev"
 import kaboom from "kaboom"
 
 const k = kaboom()
@@ -29,7 +30,7 @@ const bean = add([
 ])
 
 // .jump() when "space" key is pressed and only if on the ground (.isGrounded)
-onKeyPress("space", () => {
+onKeyPress("space"|| "up", () => {
     if (bean.isGrounded()) {
         bean.jump();
     }
@@ -49,30 +50,48 @@ add([
 setGravity(1600)
 
 // makes trees spawn at random intervals
+// function spawnTree() {
+//     loop(1, () => {
+// 		add([
+// 			rect(48, rand(24,64)),
+// 			area(),
+// 			outline(4),
+// 			pos(width(), height() - 48),
+// 			anchor("botleft"),
+// 			color(255, 180, 255),
+// 			move(LEFT, 240),
+// 			"tree", // add a tag here
+// 		])
+//         wait(rand(0.5, 1.5), () => {
+//             spawnTree();
+//         })
+//     });
+//     wait(rand(2.5, 3.5), () => {
+//         spawnTree();
+//     })
+// }
+
+
+// //loop the tree
 function spawnTree() {
-    add([
-		add([
-			rect(48, rand(24,64)),
-			area(),
-			outline(4),
-			pos(width(), height() - 48),
-			anchor("botleft"),
-			color(255, 180, 255),
-			move(LEFT, 240),
-			"tree", // add a tag here
-		]);
-    ]);
-    wait(rand(0.5, 1.5), () => {
-        spawnTree();
-    });
+    // loop(1, () => {
+        add([
+            rect(48, rand(24,64)),
+            area(),
+            outline(4),
+            pos(width(), height() - 48),
+            anchor("botleft"),
+            color(255, 180, 255),
+            move(LEFT, 240),
+            "tree",
+        ])
+        wait(rand(1.5, 2.5), () => {
+            spawnTree();
+        });
+    // });
 }
 
 spawnTree();
-// //loop the tree
-// loop(1, () => {
-// // add tree
-
-// });
 
 // collion feedback. bean and tree
 bean.onCollide("tree", () => {
