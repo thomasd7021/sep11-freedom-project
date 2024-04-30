@@ -100,13 +100,15 @@ const scenes = {
 					area(),
 					body(),
 					scale(3),
-					color(255,255,255),
-					offscreen({destroy: true}),
 					"plastic"
 				],
-				"@": player
+				"@": () => [
+					sprite("bean"),
+					area(),
+				]
 			}
 		})
+		const player = ()
 		let score = 0;
 		const scoreLabel = add([
 			text(score),
@@ -114,7 +116,7 @@ const scenes = {
 			color(0,0,0)
 		])
 
-		player.onCollide("coin", (key) => {
+		player.onCollide("plastic", (key) => {
 			destroy(key)
 			hasKey = true
 		})
