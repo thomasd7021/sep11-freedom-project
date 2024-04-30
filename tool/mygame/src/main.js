@@ -115,7 +115,7 @@ const scenes = {
 		const scoreLabel = add([
 			text(score),
 			pos(24, 24),
-			color()
+			color(0,0,0)
 		])
 		if(player)
 
