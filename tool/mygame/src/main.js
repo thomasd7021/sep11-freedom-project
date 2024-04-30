@@ -1,100 +1,170 @@
-// run with "npm run dev"
 import kaboom from "kaboom"
 
-const k = kaboom()
+kaboom({
+	width: 1200,
+	height: 800,
+	letterbox: "true"
+})
 
-// k.loadSprite("bean", "sprites/bean.png")
-
-// k.add([
-// 	k.pos(120, 80),
-// 	k.sprite("bean"),
-// ])
-
-// k.onClick(() => k.addKaboom(k.mousePos()))
-
-// const FLOOR_HEIGHT = 48;
-// const JUMP_FORCE = 800;
-// const SPEED = 480;
-
-// load a sprite "bean" from an image
 loadSprite("bean", "sprites/bean.png")
-
-
-
-// putting together our player character
-const bean = add([
-    sprite("bean"),
-    pos(80, 40),
-    area(),
-    body(),
-])
-
-// .jump() when "space" key is pressed and only if on the ground (.isGrounded)
-onKeyPress("space"|| "up", () => {
-    if (bean.isGrounded()) {
-        bean.jump();
-    }
-});
-
-// adds platform
-add([
-    rect(width(), 48),
-    pos(0, height() - 48),
-    outline(4),
-    area(),
-    body({ isStatic: true }),
-    color(127, 200, 255),
-])
-
-// sets gravity
-setGravity(1600)
-
-// makes trees spawn at random intervals
-// function spawnTree() {
-//     loop(1, () => {
-// 		add([
-// 			rect(48, rand(24,64)),
-// 			area(),
-// 			outline(4),
-// 			pos(width(), height() - 48),
-// 			anchor("botleft"),
-// 			color(255, 180, 255),
-// 			move(LEFT, 240),
-// 			"tree", // add a tag here
-// 		])
-//         wait(rand(0.5, 1.5), () => {
-//             spawnTree();
-//         })
-//     });
-//     wait(rand(2.5, 3.5), () => {
-//         spawnTree();
-//     })
+loadSprite("bad", "sprites/bad.png")
+loadSprite("coin", "sprites/coin.png")
+// const control = {
+	// onKeyPress("space", () => {
+	// 	player.jump()
+	// })
+	// onKeyPress("up", () => {
+	// 	player.jump()
+	// }),
+	// onKeyDown("left", () => {
+	// 	player.move(-150,0)
+	// }),
+	// onKeyDown("right", () => {
+	// 	player.move(150,0)
+	// })
 // }
+const scenes = {
+	menu: () => {
+		add([
+			rect(width(),height()),
+			color(0,0,0),
+		])
+		add([
+			text("Press Enter to Start"),
+			pos(50,40),
+		])
+		onKeyPress("enter", () => {
+			go("controls")
+		})
+	},
+	controls: () => {
+		add([
+			rect(width(),height()),
+			color(0,0,0)
+		])
+		add([
+			text("Controls"),
+			pos(50,40)
+		]),
+		add([
+			text("Up arrow = Up"),
+			pos(80,100)
+		])
+		add([
+			text("Down arrow= Down"),
+			pos(80,160)
+		])
+		add([
+			text("Left arrow = Left"),
+			pos(80,220)
+		])
+		add([
+			text("Right arrow = Right"),
+			pos(80,280)
+		])
+		add([
+			text("Press 'enter' to continue"),
+			pos(80,560)
+		])
+		onKeyPress("enter", () => {
+			go("1")
+		})
+		const player = add([
+			sprite("bean"),
+			pos(80, 40),
+			area(),
+			body(),
+		])
+		onKeyDown("down", () => {
+			player.move(0,150)
+		}),
+		onKeyDown("up", () => {
+			player.move(0,-150)
+		}),
+		onKeyDown("left", () => {
+			player.move(-150,0)
+		}),
+		onKeyDown("right", () => {
+			player.move(150,0)
+		})
+		add([
+			rect(width(),50),
+			pos(0,height()-50),
+			area(),
+			color(0,0,0),
+			body({isStatic: true})
+		])
 
+	},
+	1: () => {
+		//control
 
-// //loop the tree
-function spawnTree() {
-    // loop(1, () => {
-        add([
-            rect(48, rand(24,64)),
-            area(),
-            outline(4),
-            pos(width(), height() - 48),
-            anchor("botleft"),
-            color(255, 180, 255),
-            move(LEFT, 240),
-            "tree",
-        ])
-        wait(rand(1.5, 2.5), () => {
-            spawnTree();
-        });
-    // });
+		const player = add([
+			sprite("bean"),
+			pos(center().x, center().y),
+			area(),
+			body(),
+			doubleJump({doubleJump: false})
+		])
+		add([
+			rect(width(),50),
+			pos(0,height()-50),
+			area(),
+			color(0,0,0),
+			body({isStatic: true})
+		])
+
+		addLevel([
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"xxxxxxxxxxxxxxxxxxxx",
+		], {
+			tileWidth: 100,
+			tileHeight: 100,
+			tiles: {
+				"x": () => [
+					sprite("coin"),
+					area(),
+					body(),
+					scale(4)
+				]
+			}
+		})
+
+		onKeyDown("down", () => {
+			player.move(0,150)
+		}),
+		onKeyDown("up", () => {
+			player.move(0,-150)
+		}),
+		onKeyDown("left", () => {
+			player.move(-150,0)
+		}),
+		onKeyDown("right", () => {
+			player.move(150,0)
+		})
+	},
+	2: () => {
+
+	},
+	3: () => {
+
+	},
+	gameover: () => {
+
+	},
+	end: () => {
+
+	}
 }
 
-spawnTree();
+for (const key in scenes){
+	scene(key, scenes[key])
+}
 
-// collion feedback. bean and tree
-bean.onCollide("tree", () => {
-	addKaboom(bean.pos);
-	shake();
-})
+go("menu")
