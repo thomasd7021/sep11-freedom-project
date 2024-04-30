@@ -55,6 +55,7 @@ const scenes = {
 			pos(75,50),
 			area(),
 			body(),
+			"player"
 		])
 
 		//background
@@ -117,7 +118,7 @@ const scenes = {
 			pos(24, 24),
 			color(0,0,0)
 		])
-		if(player)
+		onCollide("player","coin")
 
 		//controls
 		onKeyDown("down", () => {
