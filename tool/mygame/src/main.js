@@ -57,13 +57,13 @@ const scenes = {
 		//level
 		const level = addLevel([
 			"iiiiiiiiiiiiiiiiiiiiiiii",
-			"i @i        ci c       i",
+			"i  i        ci c       i",
 			"i  i         i         i",
 			"i  i   iiiiiiiiiiiiii  i",
 			"i  i   i  c   h     i  i",
 			"i  i                i  i",
 			"i             i        i",
-			"i             i        i",
+			"i        @    i        i",
 			"i  i          i        i",
 			"i  iiiiii  iiii        i",
 			"i            i         i",
@@ -94,7 +94,7 @@ const scenes = {
 					body(),
 					scale(3),
 					anchor("center"),
-					state("idle","horizontal"),
+					//state("idle","horizontal"),
 					"bad",
 				],
 				"v": () => [
@@ -103,7 +103,7 @@ const scenes = {
 					body(),
 					scale(3),
 					anchor("center"),
-					state("idle","vertical"),
+					// state("idle","vertical"),
 					"bad",
 				],
 				"c": () => [
@@ -123,19 +123,18 @@ const scenes = {
 			}
 		})
 
-		const player = level.get("player")
-		const enemy = level.get("bad")
+		const player = level.get("player")[0]
 
 		//score and win condition
-		// let score = 0;
-		// const scoreLabel = add([
-
-		// 	pos(24, 24),
-		// 	color(0,0,0)
-		// ])
-		// if (score = 6){
-		// 	go("end")
-		// }
+		let score = 0;
+		const scoreLabel = add([
+			text(score),
+			pos(24, 24),
+			color(0,0,0)
+		])
+		if (score = 6){
+			go("end")
+		}
 
 		//enemy code
 		// if (score >= 1){
@@ -144,11 +143,11 @@ const scenes = {
 
 
 		//player interactions
-		// player.onCollide("plastic", (coin) => {
-		// 	destroy(coin)
-		// 	score++;
-		// 	scoreLabel.text = score;
-		// })
+		player.onCollide("plastic", (coin) => {
+			destroy(coin)
+			score++;
+			scoreLabel.text = score;
+		})
 		// player.onCollide("bad", () => {
 		// 	destroy(player)
 		// 	go("gameover")
@@ -217,7 +216,9 @@ const scenes = {
 
 
 	end: () => {
-
+		add([
+			text(end)
+		])
 	}
 }
 
