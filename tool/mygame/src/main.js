@@ -111,7 +111,7 @@ const scenes = {
 			}
 		})
 
-		
+		if(player)
 
 		//controls
 		onKeyDown("down", () => {
