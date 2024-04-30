@@ -118,9 +118,9 @@ const scenes = {
 			pos(24, 24),
 			color(0,0,0)
 		])
-		onCollide("player","coin", () => {
+		player.onCollide("player","coin", () => {
 			score++
-			
+
 		})
 
 		//controls
