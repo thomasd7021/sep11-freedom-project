@@ -132,9 +132,6 @@ const scenes = {
 			pos(24, 24),
 			color(0,0,0)
 		])
-		// if (score = 6){
-		// 	go("end")
-		// }
 
 		//enemy code
 		// if (score >= 1){
@@ -147,9 +144,7 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
-			if (score = 6){
-				go("end")
-			}
+		
 		})
 		player.onCollide("bad", () => {
 			destroy(player)
@@ -197,6 +192,7 @@ const scenes = {
 
 
 	3: () => {
+		add([text("3")])
 
 	},
 
@@ -214,13 +210,9 @@ const scenes = {
 		])
 	},
 
-
-
-
-
-	end: () => {
+	the: () => {
 		add([
-			text(end)
+			text("The End"),
 		])
 	}
 }
