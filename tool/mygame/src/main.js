@@ -13,80 +13,6 @@ loadSprite("coin", "sprites/coin.png")
 loadSprite("wall", "sprites/wall.png")
 
 
-
-
-
-class univeraslCode{
-	const player = level.get("player")[0]
-	const enemy = level.get("bad")[0]
-
-	//score and win condition
-	let score = 0;
-	add([
-		rect(75,75),
-		pos(0,0),
-		color(0,0,0)
-	])
-	let coinCount = get("plastic", {recursive: true}).length
-	const scoreLabel = add([
-		text(score),
-		pos(24, 24),
-	])
-
-	//enemy code
-
-	function patrol(speed = 60, dir = 1) {
-		return {
-			id: "patrol",
-			require: [ "pos", "area" ],
-			add() {
-				this.on("collide", (obj, col) => {
-					if (col.isLeft() || col.isRight()) {
-						dir = -dir
-					}
-				})
-			},
-			update() {
-				this.move(speed * dir, 0)
-			},
-		}
-	}
-
-
-	//player interactions
-	player.onCollide("plastic", (coin) => {
-		destroy(coin)
-		score++;
-		scoreLabel.text = score;
-		if(score == 7){
-			go("2")
-		}
-	})
-	player.onCollide("bad", () => {
-		destroy(player)
-		go("gameover")
-	})
-
-	//controls
-	onKeyDown("down", () => {
-		player.move(0,200)
-	}),
-	onKeyDown("up", () => {
-		player.move(0,-200)
-	}),
-	onKeyDown("left", () => {
-		player.move(-200,0)
-	}),
-	onKeyDown("right", () => {
-		player.move(200,0)
-	})
-	onKeyPress("enter", () => {
-		go("gameover")
-	})
-}
-
-
-
 //scenes
 const scenes = {
 	// main menu
@@ -343,7 +269,7 @@ const level = addLevel([
 			"player",
 		]
 	}
-	const player = level.get("player")[0]
+		const player = level.get("player")[0]
 		const enemy = level.get("bad")[0]
 
 		//score and win condition
