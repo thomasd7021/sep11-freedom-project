@@ -108,6 +108,7 @@ const scenes = {
 					body(),
 					scale(3),
 					color(255,255,255),
+					offScreen(),
 					"plastic"
 				]
 			}
@@ -118,7 +119,7 @@ const scenes = {
 			pos(24, 24),
 			color(0,0,0)
 		])
-		
+
 		player.onCollide("coin", (coin) => {
 			destroy(coin);
 			score++;
