@@ -60,7 +60,7 @@ const scenes = {
 			"i  i        ci c       i",
 			"i  i         i         i",
 			"i  i   iiiiiiiiiiiiii  i",
-			"i  i   i  c   h     i  i",
+			"i  i   i  c         i  i",
 			"i  i                i  i",
 			"i             i        i",
 			"i        @    i        i",
@@ -69,7 +69,7 @@ const scenes = {
 			"i            i         i",
 			"i            i     i   i",
 			"i  iiiiiiii  iii   i   i",
-			"i ci           i v i   i",
+			"i ci           i   i   i",
 			"i  i    c      i c i c i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
@@ -151,6 +151,9 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
+			if(score == 6){
+				go("end")
+			}
 		})
 		player.onCollide("bad", () => {
 			destroy(player)
@@ -159,16 +162,16 @@ const scenes = {
 
 		//controls
 		onKeyDown("down", () => {
-			player.move(0,150)
+			player.move(0,200)
 		}),
 		onKeyDown("up", () => {
-			player.move(0,-150)
+			player.move(0,-200)
 		}),
 		onKeyDown("left", () => {
-			player.move(-150,0)
+			player.move(-200,0)
 		}),
 		onKeyDown("right", () => {
-			player.move(150,0)
+			player.move(200,0)
 		})
 		onKeyPress("enter", () => {
 			go("gameover")
