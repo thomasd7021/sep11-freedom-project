@@ -52,7 +52,6 @@ const scenes = {
 		//player spawn
 		const player = add([
 			sprite("bean"),
-			pos(75,50),
 			area(),
 			body(),
 
@@ -64,7 +63,7 @@ const scenes = {
 		//level
 		addLevel([
 			"iiiiiiiiiiiiiiiiiiiiiiii",
-			"i  i        ci c       i",
+			"i @i        ci c       i",
 			"i  i         i         i",
 			"i  i   iiiiiiiiiiiiii  i",
 			"i  i   i  c         i  i",
@@ -110,7 +109,8 @@ const scenes = {
 					color(255,255,255),
 					offscreen({destroy: true}),
 					"plastic"
-				]
+				],
+				"@": player
 			}
 		})
 		let score = 0;
@@ -120,11 +120,9 @@ const scenes = {
 			color(0,0,0)
 		])
 
-		player.onCollide("coin", (coin) => {
-			score++;
-			scoreLabel.text = score;
-			destroy(coin)
-
+		player.onCollide("coin", (key) => {
+			destroy(key)
+			hasKey = true
 		})
 
 		//controls
