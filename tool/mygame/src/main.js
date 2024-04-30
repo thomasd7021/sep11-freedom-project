@@ -38,8 +38,8 @@ const scenes = {
 		control.add([text("Down arrow= Down"), pos(80,160)])
 		control.add([text("Left arrow = Left"), pos(80,220)])
 		control.add([text("Right arrow = Right"), pos(80,280)])
-		
-		control.add([text("Press 'enter' to continue"), pos(80,560)])
+		control.add([text("Collect the plastics and avoid the red dudes"), pos(80,500),color(255,0,0)])
+		control.add([text("Press 'enter' to continue"), pos(80,height()-48)])
 		onKeyPress("enter", () => {
 			go("1")
 		})
@@ -93,7 +93,7 @@ const scenes = {
 					sprite("bad"),
 					area(),
 					body(),
-					scale(3),
+					scale(2),
 					anchor("center"),
 					patrol(),
 					"bad",
@@ -231,7 +231,7 @@ const scenes = {
 			// anchor("center"),
 			color(255,255,255),
 		])
-		onKeyPress("enter" () => {
+		onKeyPress("enter", () => {
 			go("1")
 		})
 	},
