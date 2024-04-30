@@ -118,7 +118,10 @@ const scenes = {
 			pos(24, 24),
 			color(0,0,0)
 		])
-		player.onCollide("coin")
+		player.onCollide("coin", () => {
+			destroy(coin)
+			score++
+		})
 
 		//controls
 		onKeyDown("down", () => {
