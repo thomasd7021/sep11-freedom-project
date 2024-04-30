@@ -94,7 +94,7 @@ const scenes = {
 					body(),
 					scale(3),
 					anchor("center"),
-					//state("idle","horizontal"),
+					state("idle","moveH"),
 					"bad",
 				],
 				"v": () => [
@@ -103,7 +103,7 @@ const scenes = {
 					body(),
 					scale(3),
 					anchor("center"),
-					// state("idle","vertical"),
+					state("idle","moveV"),
 					"bad",
 				],
 				"c": () => [
@@ -124,6 +124,7 @@ const scenes = {
 		})
 
 		const player = level.get("player")[0]
+		const enemy = level.get("bad")[0]
 
 		//score and win condition
 		let score = 0;
@@ -139,9 +140,9 @@ const scenes = {
 		])
 
 		//enemy code
-		// if (score >= 1){
-		// 	enemy.enterState("move")
-		// }
+		if (score >= 1){
+			enemy.enterState("move")
+		}
 
 
 		//player interactions
