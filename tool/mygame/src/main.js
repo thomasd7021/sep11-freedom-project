@@ -129,6 +129,9 @@ const scenes = {
 		let score = 0;
 		const scoreLabel = add([
 			text(score),
+			{
+				coinCount: get("plastic", {recursive: true})
+			}
 			pos(24, 24),
 			color(0,0,0)
 		])
