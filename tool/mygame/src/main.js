@@ -75,8 +75,8 @@ const scenes = {
 			"i            i         i",
 			"i            i     i   i",
 			"i  iiiiiiii  iii   i   i",
-			"i  i           i b i   i",
-			"i ci    c      i c i c i",
+			"i ci           i b i   i",
+			"i  i    c      i c i c i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
 			tileWidth: 50,
@@ -105,6 +105,7 @@ const scenes = {
 					sprite("coin"),
 					area(),
 					body(),
+					scale(3),
 					color(255,255,255),
 					"plastic"
 				]
@@ -130,7 +131,7 @@ const scenes = {
 		onKeyDown("right", () => {
 			player.move(150,0)
 		})
-		onKeyDown("enter", () => {
+		onKeyPress("enter", () => {
 			go("gameover")
 		})
 	},
