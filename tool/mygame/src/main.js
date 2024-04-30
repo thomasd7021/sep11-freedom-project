@@ -127,14 +127,11 @@ const scenes = {
 		])
 		let coinCount = get("plastic", {recursive: true}).length
 		const scoreLabel = add([
-			text(score/coinCount),
+			text(score),
 			pos(24, 24),
 		])
 
 		//enemy code
-		if (score >= 1){
-			enemy.enterState("move")
-		}
 
 		function patrol(speed = 60, dir = 1) {
 			return {
@@ -159,7 +156,7 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
-			if(score == 8){
+			if(score == 7){
 				go("2")
 			}
 		})
