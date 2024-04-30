@@ -38,6 +38,7 @@ const scenes = {
 		control.add([text("Down arrow= Down"), pos(80,160)])
 		control.add([text("Left arrow = Left"), pos(80,220)])
 		control.add([text("Right arrow = Right"), pos(80,280)])
+		
 		control.add([text("Press 'enter' to continue"), pos(80,560)])
 		onKeyPress("enter", () => {
 			go("1")
@@ -159,7 +160,7 @@ const scenes = {
 			score++;
 			scoreLabel.text = score;
 			if(score == 8){
-				go("end")
+				go("2")
 			}
 		})
 		player.onCollide("bad", () => {
@@ -230,6 +231,9 @@ const scenes = {
 			// anchor("center"),
 			color(255,255,255),
 		])
+		onKeyPress("enter" () => {
+			go("1")
+		})
 	},
 
 	end: () => {
