@@ -121,9 +121,10 @@ const scenes = {
 		])
 
 		player.onCollide("coin", (coin) => {
-			destroy(coin);
 			score++;
 			scoreLabel.text = score;
+			destroy(coin)
+
 		})
 
 		//controls
