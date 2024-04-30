@@ -127,13 +127,17 @@ const scenes = {
 
 		//score and win condition
 		let score = 0;
+		add([
+			rect(75,75),
+			pos(0,0),
+			color(0,0,0)
+		])
 		const scoreLabel = add([
 			text(score),
 			{
 				coinCount: get("plastic", {recursive: true}).length
-			}
+			},
 			pos(24, 24),
-			color(0,0,0)
 		])
 
 		//enemy code
