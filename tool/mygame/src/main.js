@@ -114,11 +114,14 @@ const scenes = {
 		})
 		let score = 0;
 		const scoreLabel = add([
-			text(score),
+			text(score,"/6"),
 			pos(24, 24),
 			color(0,0,0)
 		])
-		onCollide("player","coin")
+		onCollide("player","coin", () => {
+			score++
+			
+		})
 
 		//controls
 		onKeyDown("down", () => {
