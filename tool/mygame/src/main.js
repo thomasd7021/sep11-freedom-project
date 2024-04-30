@@ -113,17 +113,17 @@ const scenes = {
 			}
 		})
 
-		const player = level.get("player")
+		const player = level.get("player")[0]
 
 		let score = 0;
 		const scoreLabel = add([
-			text(score),
+			
 			pos(24, 24),
 			color(0,0,0)
 		])
 
-		player.onCollide("plastic", (coin) => {
-			destroy(coin)
+		player.onCollide("plastic", (key) => {
+			destroy(key)
 			score++;
 			scoreLabel.text = score;
 		})
