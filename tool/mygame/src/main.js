@@ -55,7 +55,7 @@ const scenes = {
 			pos(75,50),
 			area(),
 			body(),
-			"player"
+
 		])
 
 		//background
@@ -114,13 +114,14 @@ const scenes = {
 		})
 		let score = 0;
 		const scoreLabel = add([
-			text(score,"/6"),
+			text(score),
 			pos(24, 24),
 			color(0,0,0)
 		])
 		player.onCollide("coin", (coin) => {
-			destroy(coin)
-			score++
+			destroy(coin);
+			score++;
+			scoreLabel.text = score;
 		})
 
 		//controls
