@@ -130,7 +130,7 @@ const scenes = {
 		const scoreLabel = add([
 			text(score),
 			{
-				coinCount: get("plastic", {recursive: true})
+				coinCount: get("plastic", {recursive: true}).length
 			}
 			pos(24, 24),
 			color(0,0,0)
