@@ -49,19 +49,13 @@ const scenes = {
 
 
 	1: () => {
-		//player spawn
-		const player = add([
-			sprite("bean"),
-			area(),
-			body(),
 
-		])
 
 		//background
 		setBackground(0,0,200)
 
 		//level
-		addLevel([
+		const level = addLevel([
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 			"i @i        ci c       i",
 			"i  i         i         i",
