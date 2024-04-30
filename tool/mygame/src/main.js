@@ -144,7 +144,6 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
-		
 		})
 		player.onCollide("bad", () => {
 			destroy(player)
@@ -210,7 +209,7 @@ const scenes = {
 		])
 	},
 
-	the: () => {
+	end: () => {
 		add([
 			text("The End"),
 		])
