@@ -127,15 +127,15 @@ const scenes = {
 		const enemy = level.get("bad")
 
 		//score and win condition
-		let score = 0;
-		const scoreLabel = add([
+		// let score = 0;
+		// const scoreLabel = add([
 
-			pos(24, 24),
-			color(0,0,0)
-		])
-		if (score = 6){
-			go("end")
-		}
+		// 	pos(24, 24),
+		// 	color(0,0,0)
+		// ])
+		// if (score = 6){
+		// 	go("end")
+		// }
 
 		//enemy code
 		// if (score >= 1){
@@ -144,15 +144,15 @@ const scenes = {
 
 
 		//player interactions
-		player.onCollide("plastic", (coin) => {
-			destroy(coin)
-			score++;
-			scoreLabel.text = score;
-		})
-		player.onCollide("bad", () => {
-			destroy(player)
-			go("gameover")
-		})
+		// player.onCollide("plastic", (coin) => {
+		// 	destroy(coin)
+		// 	score++;
+		// 	scoreLabel.text = score;
+		// })
+		// player.onCollide("bad", () => {
+		// 	destroy(player)
+		// 	go("gameover")
+		// })
 
 		//controls
 		onKeyDown("down", () => {
