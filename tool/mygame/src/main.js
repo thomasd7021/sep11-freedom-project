@@ -111,6 +111,7 @@ const scenes = {
 			}
 		})
 
+		
 
 		//controls
 		onKeyDown("down", () => {
