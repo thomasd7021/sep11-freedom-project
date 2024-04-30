@@ -114,7 +114,7 @@ const scenes = {
 				]
 			}
 		})
-
+function universalCode(){
 		const player = level.get("player")[0]
 		const enemy = level.get("bad")[0]
 
@@ -181,6 +181,7 @@ const scenes = {
 		onKeyPress("enter", () => {
 			go("gameover")
 		})
+	}
 	},
 
 
@@ -206,7 +207,68 @@ const scenes = {
 
 
 	3: () => {
-		add([text("3")])
+//background
+setBackground(0,0,200)
+
+//level
+const level = addLevel([
+	"iiiiiiiiiiiiiiiiiiiiiiii",
+	"i @i        ci c       i",
+	"i  i         i         i",
+	"i  i   iiiiiiiiiiiiii  i",
+	"i  i   i  c         i  i",
+	"i  i          b     i  i",
+	"i                      i",
+	"i             i        i",
+	"i  i          i        i",
+	"i  iiiiii  iiii b      i",
+	"i            i         i",
+	"i            i     i   i",
+	"i  iiiiiiii  iii   i   i",
+	"i ci           i   i   i",
+	"i  i    c      i c i c i",
+	"iiiiiiiiiiiiiiiiiiiiiiii",
+], {
+	tileWidth: 50,
+	tileHeight: 50,
+	tiles: {
+		"x": () => [
+			sprite("bean"),
+			area(),
+			body({isStatic: true}),
+		],
+		"i": () => [
+			sprite("wall"),
+			area(),
+			body({isStatic: true}),
+			anchor("center"),
+			scale(2),
+		],
+		"b": () => [
+			sprite("bad"),
+			area(),
+			body(),
+			scale(2),
+			anchor("center"),
+			patrol(),
+			"bad",
+		],
+		"c": () => [
+			sprite("coin"),
+			area(),
+			body(),
+			anchor("center"),
+			"plastic",
+		],
+		"@": () => [
+			sprite("bean"),
+			area(),
+			body(),
+			anchor("center"),
+			"player",
+		]
+	}
+		universalCode()
 
 	},
 
