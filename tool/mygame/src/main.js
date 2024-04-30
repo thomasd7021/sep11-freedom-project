@@ -226,8 +226,8 @@ const scenes = {
 		])
 		add([
 			text("Press 'enter' to retry"),
-			pos(center().x-50,center().y),
-			anchor("center"),
+			pos(center().x-250,center().y+150),
+			// anchor("center"),
 			color(255,255,255),
 		])
 	},
