@@ -61,7 +61,7 @@ const scenes = {
 			"i  i         i         i",
 			"i  i   iiiiiiiiiiiiii  i",
 			"i  i   i  c         i  i",
-			"i  i          b     i  i",
+			"i  i                i  i",
 			"i             i        i",
 			"i             i        i",
 			"i  i          i        i",
@@ -94,6 +94,7 @@ const scenes = {
 					body(),
 					scale(3),
 					anchor("center"),
+					mode("move")
 					"bad",
 				],
 				"c": () => [
