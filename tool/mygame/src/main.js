@@ -60,7 +60,7 @@ const scenes = {
 			"i @i        ci c       i",
 			"i  i         i         i",
 			"i  i   iiiiiiiiiiiiii  i",
-			"i  i   i  c         i  i",
+			"i  i   i  c   h     i  i",
 			"i  i                i  i",
 			"i             i        i",
 			"i             i        i",
@@ -69,7 +69,7 @@ const scenes = {
 			"i            i         i",
 			"i            i     i   i",
 			"i  iiiiiiii  iii   i   i",
-			"i ci           i b i   i",
+			"i ci           i v i   i",
 			"i  i    c      i c i c i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
@@ -88,13 +88,22 @@ const scenes = {
 					anchor("center"),
 					scale(2),
 				],
-				"b": () => [
+				"h": () => [
 					sprite("bad"),
 					area(),
 					body(),
 					scale(3),
 					anchor("center"),
-					mode("move")
+					state("idle","horizontal"),
+					"bad",
+				],
+				"v": () => [
+					sprite("bad"),
+					area(),
+					body(),
+					scale(3),
+					anchor("center"),
+					state("idle","vertical"),
 					"bad",
 				],
 				"c": () => [
@@ -125,16 +134,22 @@ const scenes = {
 			color(0,0,0)
 		])
 		if (score = 6){
-			go("win")
+			go("end")
 		}
 
+		//enemy code
+		// if (score >= 1){
+		// 	enemy.enterState("move")
+		// }
+
+
 		//player interactions
-		player.onCollide("plastic", (key) => {
-			destroy(key)
+		player.onCollide("plastic", (coin) => {
+			destroy(coin)
 			score++;
 			scoreLabel.text = score;
 		})
-		player.onCollide("bad", (bad) => {
+		player.onCollide("bad", () => {
 			destroy(player)
 			go("gameover")
 		})
