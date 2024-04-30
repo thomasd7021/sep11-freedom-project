@@ -61,7 +61,7 @@ const scenes = {
 			"i  i         i         i",
 			"i  i   iiiiiiiiiiiiii  i",
 			"i  i   i  c         i  i",
-			"i  i                i  i",
+			"i  i          h     i  i",
 			"i             i        i",
 			"i        @    i        i",
 			"i  i          i        i",
@@ -69,7 +69,7 @@ const scenes = {
 			"i            i         i",
 			"i            i     i   i",
 			"i  iiiiiiii  iii   i   i",
-			"i ci           i   i   i",
+			"i ci           i v i   i",
 			"i  i    c      i c i c i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
@@ -94,7 +94,7 @@ const scenes = {
 					body(),
 					scale(3),
 					anchor("center"),
-					state("idle","moveH"),
+					patrolH(),
 					"bad",
 				],
 				"v": () => [
@@ -103,7 +103,7 @@ const scenes = {
 					body(),
 					scale(3),
 					anchor("center"),
-					state("idle","moveV"),
+					patrolV(),
 					"bad",
 				],
 				"c": () => [
@@ -144,7 +144,23 @@ const scenes = {
 			enemy.enterState("move")
 		}
 
-		function patrol(speed = 60, dir = 1) {
+		function patrolV(speed = 60, dir = 1) {
+			return {
+				id: "patrol",
+				require: [ "pos", "area" ],
+				add() {
+					this.on("collide", (obj, col) => {
+						if (col.isLeft() || col.isRight()) {
+							dir = -dir
+						}
+					})
+				},
+				update() {
+					this.move(0,speed * dir)
+				},
+			}
+		}
+		function patrolH(speed = 60, dir = 1) {
 			return {
 				id: "patrol",
 				require: [ "pos", "area" ],
