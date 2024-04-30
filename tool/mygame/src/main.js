@@ -113,19 +113,29 @@ const scenes = {
 			}
 		})
 
-		const player = level.get("player")[0]
+		const player = level.get("player")
+		const enemy = level.get("bad")
 
+		//score and win condition
 		let score = 0;
 		const scoreLabel = add([
-			
+
 			pos(24, 24),
 			color(0,0,0)
 		])
+		if (score = 6){
+			go("win")
+		}
 
+		//player interactions
 		player.onCollide("plastic", (key) => {
 			destroy(key)
 			score++;
 			scoreLabel.text = score;
+		})
+		player.onCollide("bad", (bad) => {
+			destroy(player)
+			go("gameover")
 		})
 
 		//controls
