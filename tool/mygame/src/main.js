@@ -57,19 +57,19 @@ const scenes = {
 		//level
 		const level = addLevel([
 			"iiiiiiiiiiiiiiiiiiiiiiii",
-			"i  i        ci c       i",
+			"i @i        ci c       i",
 			"i  i         i         i",
 			"i  i   iiiiiiiiiiiiii  i",
 			"i  i   i  c         i  i",
-			"i  i          h     i  i",
+			"i  i          b     i  i",
+			"i                      i",
 			"i             i        i",
-			"i        @    i        i",
 			"i  i          i        i",
-			"i  iiiiii  iiii        i",
+			"i  iiiiii  iiii b      i",
 			"i            i         i",
 			"i            i     i   i",
 			"i  iiiiiiii  iii   i   i",
-			"i ci           i v i   i",
+			"i ci           i   i   i",
 			"i  i    c      i c i c i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
@@ -88,22 +88,13 @@ const scenes = {
 					anchor("center"),
 					scale(2),
 				],
-				"h": () => [
+				"b": () => [
 					sprite("bad"),
 					area(),
 					body(),
 					scale(3),
 					anchor("center"),
-					patrolH(),
-					"bad",
-				],
-				"v": () => [
-					sprite("bad"),
-					area(),
-					body(),
-					scale(3),
-					anchor("center"),
-					patrolV(),
+					patrol(),
 					"bad",
 				],
 				"c": () => [
@@ -144,23 +135,7 @@ const scenes = {
 			enemy.enterState("move")
 		}
 
-		function patrolV(speed = 60, dir = 1) {
-			return {
-				id: "patrol",
-				require: [ "pos", "area" ],
-				add() {
-					this.on("collide", (obj, col) => {
-						if (col.isLeft() || col.isRight()) {
-							dir = -dir
-						}
-					})
-				},
-				update() {
-					this.move(0,speed * dir)
-				},
-			}
-		}
-		function patrolH(speed = 60, dir = 1) {
+		function patrol(speed = 60, dir = 1) {
 			return {
 				id: "patrol",
 				require: [ "pos", "area" ],
@@ -247,7 +222,13 @@ const scenes = {
 			text("Game Over"),
 			pos(center()),
 			anchor("center"),
-			color(255,255,255)
+			color(255,255,255),
+		])
+		add([
+			text("Press 'enter' to retry"),
+			pos(center().x-50,center().y),
+			anchor("center"),
+			color(255,255,255),
 		])
 	},
 
