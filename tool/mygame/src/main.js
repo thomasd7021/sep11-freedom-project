@@ -85,6 +85,7 @@ const scenes = {
 					sprite("wall"),
 					area(),
 					body({isStatic: true}),
+					anchor("center"),
 					scale(2),
 				],
 				"b": () => [
@@ -92,23 +93,28 @@ const scenes = {
 					area(),
 					body(),
 					scale(3),
-					height(200),
-					"bad"
+					anchor("center"),
+					"bad",
 				],
 				"c": () => [
 					sprite("coin"),
 					area(),
 					body(),
-					scale(3),
-					"plastic"
+					anchor("center"),
+					"plastic",
 				],
 				"@": () => [
 					sprite("bean"),
 					area(),
+					body(),
+					anchor("center"),
+					"player",
 				]
 			}
 		})
-		const player = ()
+
+		const player = level.get("player")
+
 		let score = 0;
 		const scoreLabel = add([
 			text(score),
@@ -116,9 +122,10 @@ const scenes = {
 			color(0,0,0)
 		])
 
-		player.onCollide("plastic", (key) => {
-			destroy(key)
-			hasKey = true
+		player.onCollide("plastic", (coin) => {
+			destroy(coin)
+			score++;
+			scoreLabel.text = score;
 		})
 
 		//controls
