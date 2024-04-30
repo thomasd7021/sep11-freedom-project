@@ -133,7 +133,7 @@ const scenes = {
 			color(0,0,0)
 		])
 		const scoreLabel = add([
-			text(score),
+			text('score/),
 			{
 				coinCount: get("plastic", {recursive: true}).length
 			},
@@ -151,7 +151,7 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
-			if(score == 6){
+			if(score == 8){
 				go("end")
 			}
 		})
