@@ -108,7 +108,7 @@ const scenes = {
 					body(),
 					scale(3),
 					color(255,255,255),
-					offScreen(),
+					offscreen({destroy: true}),
 					"plastic"
 				]
 			}
