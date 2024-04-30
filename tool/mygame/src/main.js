@@ -114,7 +114,7 @@ const scenes = {
 				]
 			}
 		})
-function universalCode(){
+
 		const player = level.get("player")[0]
 		const enemy = level.get("bad")[0]
 
@@ -181,7 +181,6 @@ function universalCode(){
 		onKeyPress("enter", () => {
 			go("gameover")
 		})
-	}
 	},
 
 
