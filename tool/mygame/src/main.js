@@ -494,6 +494,8 @@ const scenes = {
 	end: () => {
 		const theEnd = add([
 			text("Did you think you did anything?"),
+			pos(center()),
+			anchor()
 		])
 		theEnd
 	}
