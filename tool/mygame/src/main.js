@@ -337,20 +337,20 @@ const scenes = {
 		//level
 		const level = addLevel([
 			"iiiiiiiiiiiiiiiiiiiiiiii",
+			"i          i        ic i",
 			"i                      i",
-			"i                      i",
-			"i                      i",
-			"i     iiiiiiiiiiiiiiiiii",
+			"i     i       i        i",
+			"i     iiiiiiiiiiii   iii",
 			"i     i         i      i",
-			"i     i    @    i      i",
-			"iiiiiii         i      i",
-			"i     iiii   iiii      i",
-			"i                      i",
-			"i                      i",
-			"i                      i",
-			"i                      i",
-			"i                      i",
-			"i                      i",
+			"i  c  i    @    i      i",
+			"iiiiiii         i   b  i",
+			"i  c  iiii   iiii      i",
+			"i     i                i",
+			"i     i                i",
+			"i     iiiiiiiiiiiii    i",
+			"i     i      i         i",
+			"i                 b    i",
+			"i        i         i   i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
 			tileWidth: 50,
@@ -434,7 +434,7 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
-			if(score == 7){
+			if(score == 4){
 				go("end")
 			}
 		})
