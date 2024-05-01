@@ -22,6 +22,9 @@ const scenes = {
 			text("Press Enter to Start"),
 			pos(50,40),
 		])
+		add([
+			
+		])
 		// next scene
 		onKeyPress("enter", () => {
 			go("controls")
@@ -502,8 +505,8 @@ const scenes = {
 		])
 		theEnd.add([text("You didnt do much."), pos(-250,100)])
 		theEnd.add([text("You need to do that 1000X a day"), pos(-350,150)])
-		theEnd.add([text("just to clean a patch of the ocean.", width(1000)), pos(-300,250)])
-		theEnd.add([text("So, just think about where you put your trash."), pos(-450,300)])
+		theEnd.add([text("just to clean a patch of the ocean.", width(1000)), pos(-400,200)])
+		theEnd.add([text("So, just think about where you put your trash."), pos(-500,250)])
 	}
 }
 
