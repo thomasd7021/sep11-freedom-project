@@ -375,7 +375,6 @@ const scenes = {
 					scale(2),
 					anchor("center"),
 					patrol(),
-					outline(20,),
 					"bad",
 				],
 				"c": () => [
