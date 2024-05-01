@@ -495,9 +495,11 @@ const scenes = {
 		const theEnd = add([
 			text("Did you think you did anything?"),
 			pos(center()),
-			anchor()
+			anchor("center")
 		])
-		theEnd
+		theEnd.add([text("You didnt do much.")pos(100,0)])
+		theEnd.add([text("You need to do that 1000X a day just to clean a patch of the ocean.")pos(200,0)])
+		theEnd.add([text("so just think about where you put your trash."), pos(300,0)])
 	}
 }
 
