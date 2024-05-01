@@ -435,7 +435,7 @@ const scenes = {
 			score++;
 			scoreLabel.text = score;
 			if(score == 3){
-				
+				go("end")
 			}
 		})
 		player.onCollide("bad", () => {
