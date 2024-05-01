@@ -197,7 +197,7 @@ const scenes = {
 			"i                      i",
 			"i                      i",
 			"iiiii                  i",
-			"i                      i",
+			"i      b               i",
 			"i                      i",
 			"i   i                  i",
 			"i   i                  i",
