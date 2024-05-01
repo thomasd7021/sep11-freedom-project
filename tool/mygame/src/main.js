@@ -492,9 +492,10 @@ const scenes = {
 	},
 
 	end: () => {
-		add([
+		const theEnd = add([
 			text("Did you think you did anything?"),
 		])
+		theEnd
 	}
 }
 
