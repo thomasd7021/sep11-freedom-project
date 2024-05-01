@@ -493,7 +493,7 @@ const scenes = {
 
 	end: () => {
 		add([
-			text("The End"),
+			text("Did you think you did anything?"),
 		])
 	}
 }
