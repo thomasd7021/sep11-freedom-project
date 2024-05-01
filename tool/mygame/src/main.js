@@ -500,9 +500,10 @@ const scenes = {
 			pos(center()),
 			anchor("center")
 		])
-		theEnd.add([text("You didnt do much."), pos(100,0)])
-		theEnd.add([text("You need to do that 1000X a day just to clean a patch of the ocean."), pos(200,0)])
-		theEnd.add([text("so just think about where you put your trash."), pos(300,0)])
+		theEnd.add([text("You didnt do much."), pos(-250,100)])
+		theEnd.add([text("You need to do that 1000X a day), pos()])
+		theEnd.add([text(just to clean a patch of the ocean.", width(1000)), pos(-600,200)])
+		theEnd.add([text("So, just think about where you put your trash."), pos(-450,300)])
 	}
 }
 
