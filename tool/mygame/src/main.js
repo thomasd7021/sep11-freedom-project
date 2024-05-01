@@ -178,6 +178,12 @@ const scenes = {
 		onKeyDown("right", () => {
 			player.move(200,0)
 		})
+		onKeyPress("7",() => {
+			go("3")
+		})
+		onKeyPress("8",() => {
+			go("2")
+		})
 	},
 
 
@@ -191,20 +197,20 @@ const scenes = {
 		//level
 		const level = addLevel([
 			"iiiiiiiiiiiiiiiiiiiiiiii",
-			"i         i            i",
-			"i         i            i",
+			"i         i         c  i",
+			"i        ci            i",
 			"ii   iiiiii        iiiii",
 			"i                      i",
-			"i                      i",
-			"iiiii                  i",
-			"i      b               i",
-			"i                      i",
-			"i   i                  i",
-			"i   i                  i",
-			"i   i                  i",
-			"i   i                  i",
-			"i   i                  i",
-			"i c i                  i",
+			"i            b         i",
+			"iiiii         iiiiii   i",
+			"i      b      i        i",
+			"i             i        i",
+			"i   i         i        i",
+			"i   i   iiiiiiiiii   iii",
+			"i   i   i  c  i        i",
+			"i   i   i     i        i",
+			"i   i   b     i    @   i",
+			"i c i         i        i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
 			tileWidth: 50,
@@ -288,7 +294,7 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
-			if(score == 7){
+			if(score == 4){
 				go("3")
 			}
 		})
@@ -310,6 +316,12 @@ const scenes = {
 		onKeyDown("right", () => {
 			player.move(200,0)
 		})
+		onKeyPress("7",() => {
+			go("3")
+		})
+		onKeyPress("8",() => {
+			go("1")
+		})
 
 
 	},
@@ -325,20 +337,20 @@ const scenes = {
 		//level
 		const level = addLevel([
 			"iiiiiiiiiiiiiiiiiiiiiiii",
-			"i @i        ci c       i",
-			"i  i         i         i",
-			"i  i   iiiiiiiiiiiiii  i",
-			"i  i   i  c         i  i",
-			"i  i          b     i  i",
 			"i                      i",
-			"i             i        i",
-			"i  i          i        i",
-			"i  iiiiii  iiii b      i",
-			"i            i         i",
-			"i            i     i   i",
-			"i  iiiiiiii  iii   i   i",
-			"i ci           i   i   i",
-			"i  i    c      i c i c i",
+			"i                      i",
+			"i                      ",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
+			"i                      i",
 			"iiiiiiiiiiiiiiiiiiiiiiii",
 		], {
 			tileWidth: 50,
@@ -446,6 +458,12 @@ const scenes = {
 		})
 		onKeyPress("enter", () => {
 			go("gameover")
+		})
+		onKeyPress("7",() => {
+			go("2")
+		})
+		onKeyPress("8",() => {
+			go("1")
 		})
 
 	},
