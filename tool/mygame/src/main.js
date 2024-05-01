@@ -409,7 +409,7 @@ const scenes = {
 			pos(24, 24),
 		])
 
-		//enemy code
+		//enemy walking
 
 		function patrol(speed = 60, dir = 1) {
 			return {
