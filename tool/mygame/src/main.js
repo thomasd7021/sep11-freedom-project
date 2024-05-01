@@ -23,8 +23,8 @@ const scenes = {
 			pos(50,40),
 		])
 		add([
-			text("This Is a game about cleaning the ocean")
-			pos(center())
+			text("This is a game about cleaning the ocean."),
+			pos(center()),
 			anchor("center")
 		])
 		// next scene
