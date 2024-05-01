@@ -7,10 +7,10 @@ kaboom({
 })
 
 // load sprites that will be used
-loadSprite("bean", "sprites/bean.png")
-loadSprite("bad", "sprites/bad.png")
-loadSprite("coin", "sprites/coin.png")
-loadSprite("wall", "sprites/wall.png")
+loadSprite("bean", "/sprites/bean.png")
+loadSprite("bad", "/sprites/bad.png")
+loadSprite("coin", "/sprites/coin.png")
+loadSprite("wall", "/sprites/wall.png")
 
 
 //scenes
