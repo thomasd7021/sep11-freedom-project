@@ -434,8 +434,8 @@ const scenes = {
 			destroy(coin)
 			score++;
 			scoreLabel.text = score;
-			if(score == 4){
-				go("end")
+			if(score == 3){
+				
 			}
 		})
 		player.onCollide("bad", () => {
